@@ -1,0 +1,170 @@
+.swiper-wrapper
+{ box-sizing: inherit; }
+
+
+.noUi-touch-area
+{ cursor: pointer; }
+
+
+
+dialog:not([open])
+{ display: none; }
+
+
+dialog.-modal
+{ flex-direction: column;
+  border: none;
+  width: 640px;
+  max-width: 100vw;
+  max-height: 100vh;
+  scrollbar-width: thin;
+  background-color: #fff;
+  color: #222;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+
+dialog.-modal[open]
+{ display: flex; }
+
+
+dialog.-modal::backdrop
+{ background: rgba(0,0,0,0.6); }
+
+
+dialog.-modal.hidden::backdrop
+{ background-color: transparent; }
+
+
+dialog + .backdrop
+{ position: fixed; 
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6); }
+
+
+._dialog_overlay
+{ position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+
+dialog.-modal > section
+{ overflow: auto;
+  scrollbar-width: thin;
+  background-color: inherit;
+  color: inherit;
+  outline: none; }
+
+
+dialog.-modal > section:focus
+{ box-shadow: 0 0 0 3px inset #fff2; }
+
+
+@supports not (scrollbar-width: thin)
+{
+dialog::-webkit-scrollbar,
+dialog ::-webkit-scrollbar
+{ width: 6px;
+  height: 6px; }
+
+
+dialog::-webkit-scrollbar-thumb,
+dialog ::-webkit-scrollbar-thumb
+{ background-color: #0006;
+  border-radius: 9px; }
+
+
+dialog::-webkit-scrollbar-corner,
+dialog ::-webkit-scrollbar-corner
+{ display: none; }
+}
+
+
+@media (prefers-reduced-motion: no-preference)
+{
+dialog.-modal[open]
+{ animation: appear 300ms; }
+
+
+@keyframes appear
+{
+from
+{ transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0; }
+}
+}
+
+/*
+@media (prefers-reduced-motion: no-preference)
+{
+dialog.-modal[open]
+{ visibility: visible;
+  animation: appear 300ms; }
+
+
+dialog.-modal:not([open]),
+dialog.-modal.hidden
+{ display: flex;
+  visibility: hidden;
+  animation: disappear 100ms; }
+
+
+@keyframes appear
+{
+from
+{ visibility: hidden;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0; }
+to
+{ visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1; }
+}
+
+
+@keyframes disappear
+{
+from
+{ visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1; }
+to
+{ visibility: hidden;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0; }
+}
+}
+*/
+/*
+dialog.-modal::before
+{ content: '';
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  background-color: rgba(0,0,0,0.5);
+  width: 200vw;
+  height: 200vh;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  transition: background-color 100ms; }
+}
+*/
+
+
+/*
+dialog.-modal
+{ transition: transform 300ms; }
+
+
+dialog.-modal.hidden
+{ transform: translate(-50%, -50%) scale(0.9); }
+*/
+
+
